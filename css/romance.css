@@ -1,0 +1,312 @@
+/* ==========================================================================
+   ROMANTIC MUSIC PLAYER & STARDUST PARTICLES & LOVE CAPSULES
+   Crafted for Lishy ❤️ | The Cipher Stack (@the.cipher.stack)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. FLOATING GLASS MUSIC PLAYER (Bottom-Left)
+   -------------------------------------------------------------------------- */
+.music-player-pill {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 9998;
+    background: rgba(18, 14, 24, 0.8);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 182, 193, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 105, 180, 0.2);
+    border-radius: 40px;
+    padding: 8px 16px 8px 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.2, 1, 0.3, 1);
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.music-player-pill:hover {
+    transform: translateY(-3px) scale(1.03);
+    border-color: rgba(255, 215, 0, 0.6);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7), 0 0 28px rgba(255, 105, 180, 0.35);
+}
+
+/* Vinyl Disc */
+.player-disc {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #ff4b72 18%, #1a1a1a 20%, #2a2a2a 45%, #1a1a1a 70%, #ff85a2 98%);
+    border: 2px solid rgba(255, 215, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(255, 75, 114, 0.4);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.player-disc.spinning {
+    animation: spinDisc 4s linear infinite;
+}
+
+.disc-center-heart {
+    font-size: 11px;
+    color: #fff;
+}
+
+@keyframes spinDisc {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Player Info */
+.player-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.player-song-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.player-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    color: #ff85a2;
+    letter-spacing: 0.5px;
+}
+
+/* Animated Equalizer Waves */
+.equalizer-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 2.5px;
+    height: 16px;
+    margin-left: 4px;
+}
+
+.eq-bar {
+    width: 3px;
+    background: linear-gradient(180deg, #ffd700, #ff4b72);
+    border-radius: 3px;
+    height: 3px;
+    transition: height 0.15s ease;
+}
+
+.equalizer-bars.playing .eq-bar:nth-child(1) { animation: eqJump 0.8s ease-in-out infinite alternate; }
+.equalizer-bars.playing .eq-bar:nth-child(2) { animation: eqJump 0.6s 0.2s ease-in-out infinite alternate; }
+.equalizer-bars.playing .eq-bar:nth-child(3) { animation: eqJump 1.1s 0.1s ease-in-out infinite alternate; }
+.equalizer-bars.playing .eq-bar:nth-child(4) { animation: eqJump 0.7s 0.3s ease-in-out infinite alternate; }
+
+@keyframes eqJump {
+    0% { height: 3px; }
+    100% { height: 16px; }
+}
+
+/* Play/Pause Button */
+.player-toggle-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.player-toggle-btn:hover {
+    transform: scale(1.2);
+    color: #ffd700;
+}
+
+/* --------------------------------------------------------------------------
+   2. STARDUST & SPARKLER TRAIL CANVAS
+   -------------------------------------------------------------------------- */
+#stardustCanvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9997;
+}
+
+/* --------------------------------------------------------------------------
+   3. "REASONS I LOVE YOU" INTERACTIVE CAPSULE MODAL
+   -------------------------------------------------------------------------- */
+.capsule-trigger-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 25px;
+    z-index: 9998;
+    background: rgba(18, 14, 24, 0.8);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 182, 193, 0.35);
+    box-shadow: 0 8px 30px rgba(255, 75, 114, 0.25);
+    padding: 9px 18px;
+    border-radius: 40px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12.5px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.capsule-trigger-btn:hover {
+    transform: translateY(-3px) scale(1.04);
+    border-color: #ff4b72;
+    box-shadow: 0 12px 35px rgba(255, 75, 114, 0.5);
+    color: #ffeef2;
+}
+
+/* Capsule Modal Overlay */
+.capsule-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: rgba(8, 5, 12, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.capsule-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.capsule-card {
+    position: relative;
+    max-width: 480px;
+    width: 100%;
+    background: linear-gradient(135deg, rgba(28, 14, 24, 0.95) 0%, rgba(16, 10, 18, 0.98) 100%);
+    border: 1px solid rgba(255, 182, 193, 0.4);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 105, 180, 0.25);
+    border-radius: 24px;
+    padding: 32px 28px;
+    text-align: center;
+    box-sizing: border-box;
+    transform: scale(0.9) translateY(15px);
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.capsule-backdrop.active .capsule-card {
+    transform: scale(1) translateY(0);
+}
+
+.capsule-tag {
+    display: inline-block;
+    background: rgba(255, 75, 114, 0.15);
+    border: 1px solid rgba(255, 75, 114, 0.4);
+    color: #ff85a2;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.capsule-title {
+    font-family: 'Pacifico', cursive, 'Poppins', sans-serif;
+    font-size: 28px;
+    color: #ffffff;
+    margin: 0 0 16px 0;
+    text-shadow: 0 0 20px rgba(255, 133, 162, 0.5);
+}
+
+.capsule-note-display {
+    min-height: 110px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px dashed rgba(255, 182, 193, 0.25);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.capsule-note-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #fcecef;
+    font-weight: 400;
+    margin: 0;
+    transition: opacity 0.25s ease;
+}
+
+.capsule-count-badge {
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    color: #ffd700;
+    letter-spacing: 0.5px;
+}
+
+.capsule-action-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.capsule-btn {
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.capsule-btn.primary {
+    background: linear-gradient(135deg, #ff4b72, #ff85a2);
+    color: #fff;
+    box-shadow: 0 4px 18px rgba(255, 75, 114, 0.4);
+}
+
+.capsule-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(255, 75, 114, 0.6);
+}
+
+.capsule-btn.secondary {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #dedede;
+}
+
+.capsule-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}

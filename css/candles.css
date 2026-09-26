@@ -1,0 +1,631 @@
+/* ==========================================================================
+   DIGITAL CANDLES & BIRTHDAY RITUAL STYLES
+   Designed for Lishy ❤️ | The Cipher Stack
+   ========================================================================== */
+
+/* Floating Quick Trigger Pill */
+.ritual-trigger-pill {
+    position: fixed;
+    top: 22px;
+    right: 25px;
+    z-index: 9998;
+    background: rgba(18, 18, 24, 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 182, 193, 0.35);
+    box-shadow: 0 8px 32px rgba(255, 105, 180, 0.2), inset 0 0 12px rgba(255, 215, 0, 0.15);
+    padding: 10px 22px;
+    border-radius: 50px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    animation: pillFloat 3s ease-in-out infinite alternate;
+}
+
+.ritual-trigger-pill:hover {
+    transform: translateY(-3px) scale(1.04);
+    border-color: rgba(255, 215, 0, 0.7);
+    box-shadow: 0 12px 38px rgba(255, 105, 180, 0.4), inset 0 0 18px rgba(255, 215, 0, 0.3);
+    color: #ffeef2;
+}
+
+.ritual-trigger-pill .pill-sparkle {
+    color: #ffd700;
+    animation: spinSparkle 4s linear infinite;
+}
+
+@keyframes pillFloat {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-5px); }
+}
+
+@keyframes spinSparkle {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.2); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+
+
+/* Modal Overlay Backdrop */
+.cake-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: radial-gradient(circle at center, rgba(15, 10, 20, 0.92) 0%, rgba(5, 5, 8, 0.98) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.cake-modal-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Close Button */
+.modal-close-btn {
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #e0e0e0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.modal-close-btn:hover {
+    background: rgba(255, 75, 114, 0.3);
+    border-color: #ff4b72;
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+/* Modal Content Header */
+.ritual-header {
+    text-align: center;
+    margin-bottom: 25px;
+    z-index: 2;
+}
+
+.ritual-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #ff85a2;
+    margin-bottom: 6px;
+    text-shadow: 0 0 10px rgba(255, 133, 162, 0.5);
+}
+
+.ritual-title {
+    font-family: 'Pacifico', cursive, 'Poppins', sans-serif;
+    font-size: 38px;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+    text-shadow: 0 0 20px rgba(255, 182, 193, 0.8), 0 0 40px rgba(255, 75, 114, 0.4);
+}
+
+.ritual-instructions {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #dedede;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Microphone & Tap Control Bar */
+.control-pill-group {
+    margin-top: 14px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.mic-toggle-btn, .tap-blow-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.mic-toggle-btn.listening {
+    background: rgba(46, 204, 113, 0.2);
+    border-color: #2ecc71;
+    color: #2ecc71;
+    box-shadow: 0 0 16px rgba(46, 204, 113, 0.4);
+}
+
+.mic-toggle-btn:hover, .tap-blow-btn:hover {
+    background: rgba(255, 75, 114, 0.25);
+    border-color: #ff4b72;
+    transform: translateY(-2px);
+}
+
+.mic-meter-wrapper {
+    width: 90px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    display: none;
+}
+
+.mic-meter-wrapper.visible {
+    display: block;
+}
+
+.mic-meter-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #2ecc71, #f1c40f, #e74c3c);
+    border-radius: 10px;
+    transition: width 0.05s ease-out;
+}
+
+/* ==========================================================================
+   3D NEON BIRTHDAY CAKE & REALISTIC CANDLES
+   ========================================================================== */
+.cake-stage {
+    position: relative;
+    width: 320px;
+    height: 290px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+}
+
+/* Smoke Canvas Layer */
+#smokeCanvas {
+    position: absolute;
+    top: -90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 360px;
+    height: 220px;
+    pointer-events: none;
+    z-index: 15;
+}
+
+/* Candles Row */
+.candles-row {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+    margin-bottom: -4px;
+}
+
+.candle-unit {
+    position: relative;
+    width: 14px;
+    height: 58px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Candle Stick */
+.candle-stick {
+    width: 12px;
+    height: 48px;
+    background: repeating-linear-gradient(
+        45deg,
+        #fff 0px,
+        #fff 5px,
+        #ff6584 5px,
+        #ff6584 10px
+    );
+    border-radius: 6px 6px 3px 3px;
+    box-shadow: 0 4px 14px rgba(255, 101, 132, 0.5), inset 0 0 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* Wick */
+.candle-wick {
+    width: 2.5px;
+    height: 10px;
+    background: #333;
+    border-radius: 2px;
+    margin-bottom: -1px;
+}
+
+/* Flame Container */
+.flame-box {
+    position: absolute;
+    top: -34px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22px;
+    height: 34px;
+    transform-origin: 50% 90%;
+    transition: transform 0.12s cubic-bezier(0.1, 0.9, 0.2, 1), opacity 0.4s ease;
+    cursor: pointer;
+}
+
+.flame-box.extinguished {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.1) !important;
+}
+
+/* Outer Flame Halo */
+.flame-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 180, 50, 0.45) 0%, rgba(255, 60, 110, 0.15) 50%, transparent 75%);
+    pointer-events: none;
+    animation: glowBreath 1.8s ease-in-out infinite alternate;
+}
+
+/* The Core Flame Shape */
+.flame-body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50% 50% 35% 35% / 60% 60% 40% 40%;
+    background: radial-gradient(ellipse at 50% 85%, #ffffff 0%, #fff7a1 28%, #ff9800 60%, #ff1744 95%);
+    box-shadow: 0 0 16px rgba(255, 152, 0, 0.9), 0 0 32px rgba(255, 23, 68, 0.6);
+    animation: naturalFlicker 1.4s ease-in-out infinite alternate;
+}
+
+.flame-inner-core {
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 14px;
+    background: #ffffff;
+    border-radius: 50%;
+    filter: blur(0.6px);
+}
+
+@keyframes naturalFlicker {
+    0% { transform: scale(1) rotate(-1.5deg); }
+    30% { transform: scale(1.06, 0.94) rotate(1.8deg); }
+    60% { transform: scale(0.95, 1.05) rotate(-1.2deg); }
+    85% { transform: scale(1.03, 0.97) rotate(2deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes glowBreath {
+    0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.7; }
+    100% { transform: translate(-50%, -50%) scale(1.08); opacity: 1; }
+}
+
+/* Cake Tiers */
+.cake-structure {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Top Tier */
+.cake-tier-top {
+    position: relative;
+    width: 160px;
+    height: 64px;
+    background: linear-gradient(180deg, #ff758c 0%, #ff5e7e 60%, #d83a56 100%);
+    border-radius: 12px 12px 6px 6px;
+    box-shadow: 0 8px 24px rgba(255, 94, 126, 0.35), inset 0 2px 6px rgba(255, 255, 255, 0.4);
+    z-index: 5;
+    overflow: hidden;
+}
+
+/* Bottom Tier */
+.cake-tier-bottom {
+    position: relative;
+    width: 230px;
+    height: 78px;
+    background: linear-gradient(180deg, #2b1020 0%, #1a0814 100%);
+    border-top: 5px solid #ff758c;
+    border-radius: 16px 16px 8px 8px;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6), inset 0 1px 4px rgba(255, 255, 255, 0.2);
+    z-index: 4;
+    overflow: hidden;
+    margin-top: -3px;
+}
+
+/* Frosting Drips */
+.frosting-drips {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 18px;
+    background: #fff;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.tier-bottom .frosting-drips {
+    background: #ff758c;
+}
+
+/* Cake Sprinkles */
+.cake-decor-hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #ffd700;
+    font-size: 10px;
+    opacity: 0.85;
+    pointer-events: none;
+}
+
+/* Cake Plate */
+.cake-plate {
+    width: 280px;
+    height: 14px;
+    background: linear-gradient(90deg, #dcdde1 0%, #ffffff 50%, #dcdde1 100%);
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.25);
+    margin-top: -3px;
+    z-index: 3;
+}
+
+/* Hint text under cake */
+.cake-tap-hint {
+    margin-top: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 0.4px;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.cake-tap-hint:hover {
+    color: #ff85a2;
+}
+
+/* ==========================================================================
+   FULL BLACKOUT CURTAIN
+   ========================================================================== */
+.blackout-curtain {
+    position: fixed;
+    inset: 0;
+    background: #000000;
+    z-index: 1000000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blackout-curtain.blackout-active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ==========================================================================
+   WISH GRANTED CELEBRATION MODAL
+   ========================================================================== */
+.wish-reveal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1000001;
+    background: rgba(5, 3, 8, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    box-sizing: border-box;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+}
+
+.wish-reveal-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.wish-card {
+    position: relative;
+    max-width: 540px;
+    width: 100%;
+    background: linear-gradient(135deg, rgba(28, 16, 26, 0.95) 0%, rgba(14, 10, 18, 0.98) 100%);
+    border: 1.5px solid rgba(255, 182, 193, 0.45);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 50px rgba(255, 105, 180, 0.35), inset 0 0 25px rgba(255, 215, 0, 0.1);
+    border-radius: 24px;
+    padding: 38px 32px;
+    text-align: center;
+    box-sizing: border-box;
+    transform: scale(0.92) translateY(20px);
+    transition: all 0.7s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.wish-reveal-backdrop.active .wish-card {
+    transform: scale(1) translateY(0);
+}
+
+.wish-crown-icon {
+    font-size: 34px;
+    margin-bottom: 6px;
+    animation: crownFloat 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes crownFloat {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-6px) scale(1.08); }
+}
+
+.wish-badge {
+    display: inline-block;
+    background: linear-gradient(90deg, rgba(255, 215, 0, 0.2), rgba(255, 105, 180, 0.25));
+    border: 1px solid rgba(255, 215, 0, 0.5);
+    padding: 5px 16px;
+    border-radius: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #ffd700;
+    margin-bottom: 16px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.wish-headline {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 16px 0;
+    background: linear-gradient(135deg, #ffffff 0%, #ffe4e9 40%, #ff85a2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(255, 133, 162, 0.4);
+}
+
+.wish-message {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #e5d9df;
+    margin: 0 0 24px 0;
+    font-weight: 300;
+}
+
+.wish-signature-block {
+    margin: 20px 0 26px 0;
+    padding-top: 18px;
+    border-top: 1px dashed rgba(255, 182, 193, 0.25);
+}
+
+.wish-sign-lead {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    color: #bfaab3;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.wish-sign-author {
+    font-family: 'Pacifico', cursive, 'Poppins', sans-serif;
+    font-size: 22px;
+    color: #ff85a2;
+    display: block;
+}
+
+.wish-sign-ig {
+    margin-top: 5px;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11.5px;
+    color: #ffd700;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.wish-sign-ig:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.wish-btn-row {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.wish-action-btn {
+    padding: 11px 24px;
+    border-radius: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.wish-action-btn.primary {
+    background: linear-gradient(135deg, #ff4b72 0%, #ff85a2 100%);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(255, 75, 114, 0.45);
+}
+
+.wish-action-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(255, 75, 114, 0.7);
+}
+
+.wish-action-btn.secondary {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #f0e6eb;
+}
+
+.wish-action-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: #ffd700;
+    color: #ffd700;
+    transform: translateY(-2px);
+}
+
+/* Confetti Layer on Finale */
+#confettiCanvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000000;
+}
